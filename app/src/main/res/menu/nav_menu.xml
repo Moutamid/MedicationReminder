@@ -1,0 +1,29 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Define your menu items here -->
+    <item
+        android:id="@+id/nav_item_home"
+        android:title="Home" />
+
+    <item
+        android:id="@+id/nav_item_all_reminders"
+        android:title="All Reminders" />
+
+    <item
+        android:id="@+id/nav_item_medication"
+        android:title="Medication Information" />
+
+    <item
+        android:id="@+id/nav_item_language"
+        android:title="Select Language" />
+
+
+    <item
+        android:id="@+id/nav_item_contact"
+        android:title="Contact" />
+
+
+
+    <!-- Add more items as needed -->
+
+</menu>
