@@ -26,10 +26,7 @@ import com.fatma.medicationreminderapp_fatmaalajmi.activities.MedicineDetailActi
 import com.fatma.medicationreminderapp_fatmaalajmi.brain.MedicinesData;
 import com.fatma.medicationreminderapp_fatmaalajmi.databinding.FragmentMedicationBinding;
 import com.fatma.medicationreminderapp_fatmaalajmi.models.MedicineModel;
-import com.fatma.medicationreminderapp_fatmaalajmi.models.ReminderModel;
-import com.fxn.stash.Stash;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MedicationFragment extends Fragment {
@@ -54,6 +51,11 @@ public class MedicationFragment extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
+                if (s.length() == 0){
+                    tasksArrayList = MedicinesData.medicineModelArrayList();
+                    adapter.notifyDataSetChanged();
+                    return;
+                }
                 adapter.getFilter().filter(s);
             }
 

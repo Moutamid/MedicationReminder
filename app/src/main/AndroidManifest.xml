@@ -33,6 +33,10 @@
         <activity
             android:name=".activities.AddReminderActivity"
             android:exported="true" />
+        <activity
+            android:name=".activities.MedicineDetailActivity"
+            android:exported="true" />
+
 
         <receiver
             android:name=".notification.NotificationReceiver"
