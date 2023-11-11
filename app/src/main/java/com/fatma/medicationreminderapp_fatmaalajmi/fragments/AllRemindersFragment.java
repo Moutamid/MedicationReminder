@@ -11,12 +11,16 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.fatma.medicationreminderapp_fatmaalajmi.AddReminderActivity;
+import com.fatma.medicationreminderapp_fatmaalajmi.Constants;
+import com.fatma.medicationreminderapp_fatmaalajmi.activities.AddReminderActivity;
 import com.fatma.medicationreminderapp_fatmaalajmi.R;
 import com.fatma.medicationreminderapp_fatmaalajmi.databinding.FragmentAllRemindersBinding;
+import com.fatma.medicationreminderapp_fatmaalajmi.models.ReminderModel;
+import com.fxn.stash.Stash;
 
 import java.util.ArrayList;
 
@@ -41,22 +45,20 @@ public class AllRemindersFragment extends Fragment {
         return b.getRoot();
     }
 
-    private ArrayList<String> tasksArrayList = new ArrayList<>();
+    private ArrayList<ReminderModel> tasksArrayList = new ArrayList<>();
 
     private RecyclerView conversationRecyclerView;
     private RecyclerViewAdapterMessages adapter;
 
     private void initRecyclerView() {
 
+        tasksArrayList = Stash.getArrayList(Constants.REMINDERS_LIST, ReminderModel.class);
+
         conversationRecyclerView = b.remindersRecyclerview;
-        //conversationRecyclerView.addItemDecoration(new DividerItemDecoration(conversationRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
+        conversationRecyclerView.addItemDecoration(new DividerItemDecoration(conversationRecyclerView.getContext(), DividerItemDecoration.VERTICAL));
         adapter = new RecyclerViewAdapterMessages();
-        //        LinearLayoutManager layoutManagerUserFriends = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
-        //    int numberOfColumns = 3;
-        //int mNoOfColumns = calculateNoOfColumns(getApplicationContext(), 50);
-        //  recyclerView.setLayoutManager(new GridLayoutManager(this, mNoOfColumns));
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
-        //linearLayoutManager.setReverseLayout(true);
+        linearLayoutManager.setReverseLayout(true);
         conversationRecyclerView.setLayoutManager(linearLayoutManager);
         conversationRecyclerView.setHasFixedSize(true);
         conversationRecyclerView.setNestedScrollingEnabled(false);
@@ -82,8 +84,9 @@ public class AllRemindersFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(@NonNull final ViewHolderRightMessage holder, int position) {
+            ReminderModel model = tasksArrayList.get(position);
 
-            //            holder.title.setText("");
+            holder.title.setText(model.medicationName + getString(R.string.reminder_scheduled_for) + model.reminderTime + getString(R.string.daily));
 
         }
 
@@ -100,11 +103,16 @@ public class AllRemindersFragment extends Fragment {
 
             public ViewHolderRightMessage(@NonNull View v) {
                 super(v);
-//                                title = v.findViewById(R.id.titleTextview);
+                title = v.findViewById(R.id.textview_layout);
 
             }
         }
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        initRecyclerView();
+    }
 }

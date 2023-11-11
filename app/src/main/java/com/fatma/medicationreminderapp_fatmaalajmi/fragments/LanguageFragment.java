@@ -10,7 +10,7 @@ import androidx.fragment.app.Fragment;
 
 import com.fatma.medicationreminderapp_fatmaalajmi.Constants;
 import com.fatma.medicationreminderapp_fatmaalajmi.R;
-import com.fatma.medicationreminderapp_fatmaalajmi.MainActivity;
+import com.fatma.medicationreminderapp_fatmaalajmi.activities.MainActivity;
 import com.fxn.stash.Stash;
 
 public class LanguageFragment extends Fragment {

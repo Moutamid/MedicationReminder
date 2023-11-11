@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:text="Choose your language"
+        android:text="@string/choose_your_language"
         android:textSize="25sp" />
 
     <RadioGroup
@@ -44,6 +44,6 @@
         android:layout_height="wrap_content"
         android:backgroundTint="@color/black"
         android:layout_alignParentBottom="true"
-        android:text="Continue" />
+        android:text="@string/continuee" />
 
 </RelativeLayout>

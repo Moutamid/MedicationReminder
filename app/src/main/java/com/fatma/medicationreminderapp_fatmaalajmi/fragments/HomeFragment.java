@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import androidx.fragment.app.Fragment;
 
 import com.fatma.medicationreminderapp_fatmaalajmi.R;
-import com.fatma.medicationreminderapp_fatmaalajmi.MainActivity;
+import com.fatma.medicationreminderapp_fatmaalajmi.activities.MainActivity;
 
 public class HomeFragment extends Fragment {
 

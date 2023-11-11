@@ -25,7 +25,7 @@
                     android:id="@+id/medication_name_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Medication name"
+                    android:hint="@string/medication_name"
                     android:inputType="text"
                     android:maxLines="1" />
 
@@ -43,45 +43,26 @@
                     android:id="@+id/medication_unit_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Medication unit"
+                    android:hint="@string/medication_unit"
                     android:inputType="text"
                     android:maxLines="1" />
 
             </com.google.android.material.textfield.TextInputLayout>
 
-
-            <!--<com.google.android.material.textfield.TextInputLayout
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/medication_how_often_et"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:hint="How often do you take this medicine?"
-                    android:inputType="text"
-                    android:maxLines="1" />
-
-            </com.google.android.material.textfield.TextInputLayout>-->
-
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
-                android:text="How often do you take this medicine and when would you like to be reminded?" />
+                android:text="@string/how_often_do_you_take_this_medicine_and_when_would_you_like_to_be_reminded" />
 
             <TextView
+                android:id="@+id/setMedicineReminderTimeTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="5dp"
-                android:text="Select Reminder Time"
-                android:id="@+id/setMedicineReminderTimeTv"
+                android:text="@string/select_reminder_time"
                 android:textSize="25sp" />
 
             <com.google.android.material.textfield.TextInputLayout
@@ -96,7 +77,7 @@
                     android:id="@+id/medication_dose_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Medication Dose"
+                    android:hint="@string/medication_dose"
                     android:inputType="number"
                     android:maxLines="1" />
 
@@ -108,7 +89,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="30dp"
-                android:text="Current Medication Inventory"
+                android:text="@string/current_medication_inventory"
                 android:textColor="@color/black"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -119,7 +100,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
-                android:text="Do you want to get reminders to refill your medication inventory?" />
+                android:text="@string/do_you_want_to_get_reminders_to_refill_your_medication_inventory" />
 
             <TextView
                 android:id="@+id/setInventoryReminderTextView"
@@ -127,9 +108,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="10dp"
-                android:text="Set Reminder"
-                android:textSize="25sp"
-                 />
+                android:text="@string/set_reminder_date"
+                android:textSize="25sp" />
 
             <com.google.android.material.textfield.TextInputLayout
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
@@ -143,7 +123,7 @@
                     android:id="@+id/medication_amount_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Medication Amount"
+                    android:hint="@string/medication_amount"
                     android:inputType="number"
                     android:maxLines="1" />
 
@@ -161,7 +141,7 @@
                     android:id="@+id/medication_threshold_et"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Medication Threshold"
+                    android:hint="@string/medication_threshold"
                     android:inputType="text"
                     android:maxLines="1" />
 
@@ -171,10 +151,9 @@
                 android:id="@+id/saveBtn"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
                 android:layout_marginTop="20dp"
                 android:backgroundTint="@color/black"
-                android:text="Save" />
+                android:text="@string/savee" />
 
         </LinearLayout>
 

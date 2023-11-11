@@ -1,5 +1,7 @@
-package com.fatma.medicationreminderapp_fatmaalajmi;
+package com.fatma.medicationreminderapp_fatmaalajmi.activities;
 
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
 
@@ -7,9 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.app.AppCompatDelegate;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.fatma.medicationreminderapp_fatmaalajmi.R;
 import com.fatma.medicationreminderapp_fatmaalajmi.databinding.ActivitySplashBinding;
 import com.fatma.medicationreminderapp_fatmaalajmi.fragments.AllRemindersFragment;
 import com.fatma.medicationreminderapp_fatmaalajmi.fragments.ContactFragment;
@@ -74,6 +79,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+
+        if (Build.VERSION.SDK_INT > 32) {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
+                    == PackageManager.PERMISSION_GRANTED) {
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.POST_NOTIFICATIONS,
+                                android.Manifest.permission.SCHEDULE_EXACT_ALARM,
+                                android.Manifest.permission.USE_EXACT_ALARM}, 1234);
+            }
+        } else {
+            if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.SCHEDULE_EXACT_ALARM)
+                    == PackageManager.PERMISSION_GRANTED) {
+            } else {
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.SCHEDULE_EXACT_ALARM, android.Manifest.permission.USE_EXACT_ALARM}, 1234);
+            }
+        }
 
     }
 

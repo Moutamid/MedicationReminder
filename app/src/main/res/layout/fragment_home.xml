@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:gravity="center"
-        android:text="Medicine Reminder App"
+        android:text="@string/medicine_reminder_app"
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold" />
@@ -19,7 +19,7 @@
         android:layout_centerInParent="true"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="20dp"
-        android:text="An app that helps you keep track of your medications"
+        android:text="@string/an_app_that_helps_you_keep_track_of_your_medications"
         android:textSize="38sp" />
 
     <Button
@@ -28,6 +28,6 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/black"
-        android:text="Continue" />
+        android:text="@string/continuee" />
 
 </RelativeLayout>
