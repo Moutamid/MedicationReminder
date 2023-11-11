@@ -4,6 +4,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
@@ -14,6 +15,7 @@ import androidx.core.content.ContextCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import com.fatma.medicationreminderapp_fatmaalajmi.Constants;
 import com.fatma.medicationreminderapp_fatmaalajmi.R;
 import com.fatma.medicationreminderapp_fatmaalajmi.databinding.ActivitySplashBinding;
 import com.fatma.medicationreminderapp_fatmaalajmi.fragments.AllRemindersFragment;
@@ -21,6 +23,7 @@ import com.fatma.medicationreminderapp_fatmaalajmi.fragments.ContactFragment;
 import com.fatma.medicationreminderapp_fatmaalajmi.fragments.HomeFragment;
 import com.fatma.medicationreminderapp_fatmaalajmi.fragments.LanguageFragment;
 import com.fatma.medicationreminderapp_fatmaalajmi.fragments.MedicationFragment;
+import com.fxn.stash.Stash;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Constants.setAppLocale(this, Stash.getString(Constants.CURRENT_LANGUAGE, "en"));
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         b = ActivitySplashBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
@@ -50,36 +54,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 // Handle navigation item clicks here
-                switch (item.getItemId()) {
-                    case R.id.nav_item_home:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-                        break;
-
-                    case R.id.nav_item_all_reminders:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AllRemindersFragment()).commit();
-                        break;
-
-                    case R.id.nav_item_medication:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MedicationFragment()).commit();
-                        break;
-
-                    case R.id.nav_item_language:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LanguageFragment()).commit();
-                        break;
-
-                    case R.id.nav_item_contact:
-                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();
-                        break;
+                int itemId = item.getItemId();
+                if (itemId == R.id.nav_item_home) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+                } else if (itemId == R.id.nav_item_all_reminders) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AllRemindersFragment()).commit();
+                } else if (itemId == R.id.nav_item_medication) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MedicationFragment()).commit();
+                } else if (itemId == R.id.nav_item_language) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LanguageFragment()).commit();
+                } else if (itemId == R.id.nav_item_contact) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();
                 }
 
                 // Close the drawer when an item is selected
                 drawer.closeDrawer(GravityCompat.START);
-                return true;
+                return false;
             }
         });
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
-
+        if (Stash.getBoolean(Constants.IS_LANGUAGE_SELECTED, false)) {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AllRemindersFragment()).commit();
+        } else {
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new HomeFragment()).commit();
+        }
         if (Build.VERSION.SDK_INT > 32) {
             if (ContextCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS)
                     == PackageManager.PERMISSION_GRANTED) {
@@ -107,12 +105,15 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
 
+//        Toast.makeText(MainActivity.this, "other", Toast.LENGTH_SHORT).show();
+
         return super.onOptionsItemSelected(item);
     }
 
     public void goToLanguageFragment() {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LanguageFragment()).commit();
     }
+
     public void goToAllRemindersFragment() {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new AllRemindersFragment()).commit();
     }

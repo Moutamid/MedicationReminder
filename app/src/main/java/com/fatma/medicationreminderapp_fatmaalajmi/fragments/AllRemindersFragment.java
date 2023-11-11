@@ -33,7 +33,7 @@ public class AllRemindersFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+        Constants.setAppLocale(requireContext(), Stash.getString(Constants.CURRENT_LANGUAGE, "en"));
         b = FragmentAllRemindersBinding.inflate(from(requireContext()), container, false);
 
         initRecyclerView();

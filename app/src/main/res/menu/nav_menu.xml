@@ -3,24 +3,24 @@
     <!-- Define your menu items here -->
     <item
         android:id="@+id/nav_item_home"
-        android:title="Home" />
+        android:title="@string/home" />
 
     <item
         android:id="@+id/nav_item_all_reminders"
-        android:title="All Reminders" />
+        android:title="@string/all_reminders" />
 
     <item
         android:id="@+id/nav_item_medication"
-        android:title="Medication Information" />
+        android:title="@string/medication_information" />
 
     <item
         android:id="@+id/nav_item_language"
-        android:title="Select Language" />
+        android:title="@string/select_language" />
 
 
     <item
         android:id="@+id/nav_item_contact"
-        android:title="Contact" />
+        android:title="@string/contact" />
 
 
 

@@ -30,6 +30,10 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".activities.AddReminderActivity"
+            android:exported="true" />
+
         <receiver
             android:name=".notification.NotificationReceiver"
             android:enabled="true"

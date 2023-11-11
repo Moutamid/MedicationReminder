@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">MedicationReminderapp_FatmaAlAjmi</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="reminder_scheduled_for">" تم جدولة التذكير لـ "</string>
+    <string name="daily">" يوميًا."</string>
+    <string name="select_date">اختر التاريخ</string>
+    <string name="remind_on">"تذكير في: "</string>
+    <string name="datepicker">منتقى التاريخ</string>
+    <string name="select_time">اختر الوقت</string>
+    <string name="remind_daily_at">"تذكير يوميًا في: "</string>
+    <string name="timepicker">منتقى الوقت</string>
+    <string name="it_s_time_to_take_your">"حان الوقت لتناول "</string>
+    <string name="medicines_of">" من الأدوية "</string>
+    <string name="medication_inventory_is_low_of">"انخفاض مخزون الدواء من "</string>
+    <string name="saved">حفظ</string>
+    <string name="medicine_reminder">تذكير الدواء</string>
+    <string name="inventory_reminder">تذكير المخزون</string>
+    <string name="medicine_reminder_app">تطبيق تذكير الدواء</string>
+    <string name="an_app_that_helps_you_keep_track_of_your_medications">تطبيق يساعدك في تتبع أدويتك</string>
+    <string name="continuee">متابعة</string>
+    <string name="no_reminders_added">لم يتم إضافة تذكير :(</string>
+    <string name="medication_name">اسم الدواء</string>
+    <string name="medication_unit">وحدة الدواء</string>
+    <string name="how_often_do_you_take_this_medicine_and_when_would_you_like_to_be_reminded">كم مرة تتناول هذا الدواء ومتى تود أن تتلقى تذكيرًا؟</string>
+    <string name="select_reminder_time">اختر وقت التذكير</string>
+    <string name="medication_dose">جرعة الدواء</string>
+    <string name="current_medication_inventory">المخزون الحالي للدواء</string>
+    <string name="do_you_want_to_get_reminders_to_refill_your_medication_inventory">هل ترغب في الحصول على تذكير لإعادة ملء مخزون الدواء؟</string>
+    <string name="set_reminder_date">تعيين تاريخ التذكير</string>
+    <string name="medication_amount">كمية الدواء</string>
+    <string name="medication_threshold">حد الدواء</string>
+    <string name="savee">حفظ</string>
+    <string name="choose_your_language">اختر لغتك</string>
+    <string name="home">الرئيسية</string>
+    <string name="all_reminders">جميع التذكيرات</string>
+    <string name="medication_information">معلومات الدواء</string>
+    <string name="select_language">اختر اللغة</string>
+    <string name="app_designer_nfatma">مصمم التطبيق:\nفاطمة</string>
+    <string name="email_nalajmifatma14_gmail_com">البريد الإلكتروني:\nalajmifatma14@gmail.com</string>
+    <string name="contact">الاتصال</string>
+
+</resources>

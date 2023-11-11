@@ -11,7 +11,8 @@
     <!-- Your main content -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:visibility="gone">
 
         <!-- Your main content goes here -->
 
@@ -25,6 +26,12 @@
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
     </RelativeLayout>
 
+    <!-- Inside your DrawerLayout -->
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <!-- Side navigation view -->
     <com.google.android.material.navigation.NavigationView
         android:id="@+id/nav_view"
@@ -33,14 +40,6 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu" />
-
-    <!-- Inside your DrawerLayout -->
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/toolbar"
-        android:layout_gravity="start" />
 
 
 </androidx.drawerlayout.widget.DrawerLayout>
