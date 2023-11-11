@@ -11,39 +11,65 @@
         android:text="@string/choose_your_language"
         android:textSize="25sp" />
 
-    <RadioGroup
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
         android:layout_centerInParent="true"
-        android:layout_marginStart="20dp"
-        android:checkedButton="@id/toggleEnglish"
-        android:scaleX="1.5"
-        android:id="@+id/radioGroupLanguage"
-        android:scaleY="1.5">
+        android:orientation="vertical">
 
-        <RadioButton
-            android:id="@+id/toggleEnglish"
+        <RadioGroup
+            android:id="@+id/radioGroupLanguage"
             android:layout_width="wrap_content"
-            android:buttonTint="@color/black"
             android:layout_height="wrap_content"
-            android:text="English" />
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:checkedButton="@id/toggleEnglish"
+            android:scaleX="1.5"
+            android:scaleY="1.5">
 
-        <RadioButton
-            android:id="@+id/toggleArabic"
-            android:layout_width="wrap_content"
-            android:buttonTint="@color/black"
+            <RadioButton
+                android:id="@+id/toggleEnglish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                android:text="English" />
+
+            <RadioButton
+                android:id="@+id/toggleArabic"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:buttonTint="@color/black"
+                android:text="Arabic" />
+
+        </RadioGroup>
+
+
+        <TextView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Arabic" />
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/app_designer_nfatma"
+            android:textSize="45sp" />
 
-    </RadioGroup>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:text="@string/email_nalajmifatma14_gmail_com"
+            android:textSize="45sp" />
+
+    </LinearLayout>
+
 
     <Button
         android:id="@+id/continueBtnLanguage"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:backgroundTint="@color/black"
         android:layout_alignParentBottom="true"
+        android:backgroundTint="@color/black"
         android:text="@string/continuee" />
 
 </RelativeLayout>

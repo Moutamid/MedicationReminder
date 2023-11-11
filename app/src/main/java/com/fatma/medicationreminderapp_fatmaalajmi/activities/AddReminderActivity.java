@@ -2,6 +2,7 @@ package com.fatma.medicationreminderapp_fatmaalajmi.activities;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import com.google.android.material.timepicker.TimeFormat;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class AddReminderActivity extends AppCompatActivity {
 
@@ -53,8 +55,8 @@ public class AddReminderActivity extends AppCompatActivity {
 
         b.setMedicineReminderTimeTv.setOnClickListener(v -> {
             MaterialTimePicker timePicker = new MaterialTimePicker.Builder()
-                    .setTimeFormat(TimeFormat.CLOCK_24H)
-                    .setHour(12) // Initial hour value
+                    .setTimeFormat(TimeFormat.CLOCK_12H)
+                    .setHour(9) // Initial hour value
                     .setMinute(0) // Initial minute value
                     .setTitleText(R.string.select_time)
                     .build();
@@ -76,7 +78,7 @@ public class AddReminderActivity extends AppCompatActivity {
             timePicker.show(getSupportFragmentManager(), getString(R.string.timepicker));
         });
 
-        b.setInventoryReminderSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        /*b.setInventoryReminderSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
 
             if (isChecked) {
                 b.setInventoryReminderTextView.setVisibility(View.VISIBLE);
@@ -84,7 +86,15 @@ public class AddReminderActivity extends AppCompatActivity {
                 b.setInventoryReminderTextView.setVisibility(View.GONE);
             }
 
-        });
+        });*/
+
+        List<String> list = new ArrayList<>();
+        list.add("Pill(s)");
+        list.add("Capsules(s)");
+        list.add("Drops(s)");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
+        b.medicationUnitEt.setAdapter(adapter);
 
         b.saveBtn.setOnClickListener(v -> {
             String name = b.medicationNameEt.getText().toString();
@@ -103,9 +113,11 @@ public class AddReminderActivity extends AppCompatActivity {
                 return;
             if (threshold.isEmpty())
                 return;
-            if (b.setInventoryReminderSwitch.isChecked())
-                if (selectedDate.isEmpty())
-                    return;
+            if (!b.setInventoryReminderSwitch.isChecked())
+                return;
+//                if (selectedDate.isEmpty())
+//            else return;
+
             if (timePickerHour == 30)
                 return;
 
@@ -136,7 +148,7 @@ public class AddReminderActivity extends AppCompatActivity {
                     + name
                     + getString(R.string.medicines_of)
                     + reminderModel.reminderTime
-                    + " (" + dose + ")";
+                    + " (" + dose +" "+unit+ ")";
 
             NotificationScheduler.scheduleNotification(
                     AddReminderActivity.this, medicineReminderCalender,

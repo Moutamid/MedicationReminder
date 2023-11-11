@@ -17,6 +17,7 @@ public class Constants {
     public static final String INVENTORY_REMINDER = "INVENTORY_REMINDER";
     public static final String MESSAGE = "MESSAGE";
     public static final String IS_LANGUAGE_SELECTED = "IS_LANGUAGE_SELECTED";
+    public static final String PARAMS = "PARAMS";
     private static final String NOTIFICATION_ID = "NOTIFICATION_ID";
 
     public static int getNewID(){

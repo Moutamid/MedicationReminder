@@ -9,6 +9,8 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.os.Build;
 import android.widget.Toast;
 
@@ -52,6 +54,8 @@ public class NotificationHelper extends ContextWrapper {
         Intent intent = new Intent(this, activityName);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 267, intent, PendingIntent.FLAG_IMMUTABLE);//FLAG_UPDATE_CURRENT
 
+        Uri soundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+
         Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                 .setContentTitle(title)
                 .setSmallIcon(R.drawable.ic_launcher_background)
@@ -61,6 +65,7 @@ public class NotificationHelper extends ContextWrapper {
                 .setContentText(body)
                 .setContentIntent(pendingIntent)
                 .setAutoCancel(true)
+                .setSound(soundUri)
                 .build();
 
         if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
