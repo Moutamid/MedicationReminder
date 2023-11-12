@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/popup_item_pills"
+        android:title="@string/pill_s" />
+
+    <item
+        android:id="@+id/popup_item_capsules"
+        android:title="@string/capsules_s" />
+
+    <item
+        android:id="@+id/popup_item_drops"
+        android:title="@string/drops_s" />
+
+</menu>

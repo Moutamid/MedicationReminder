@@ -25,6 +25,7 @@
     <Button
         android:id="@+id/continueBtnHome"
         android:layout_width="match_parent"
+        android:textAllCaps="false"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:backgroundTint="@color/black"

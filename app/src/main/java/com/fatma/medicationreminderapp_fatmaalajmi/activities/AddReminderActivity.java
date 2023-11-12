@@ -1,11 +1,13 @@
 package com.fatma.medicationreminderapp_fatmaalajmi.activities;
 
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 
 import com.fatma.medicationreminderapp_fatmaalajmi.Constants;
 import com.fatma.medicationreminderapp_fatmaalajmi.R;
@@ -35,6 +37,27 @@ public class AddReminderActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         b = ActivityAddReminderBinding.inflate(getLayoutInflater());
         setContentView(b.getRoot());
+
+        b.medicationUnitEt.setOnClickListener(v -> {
+            PopupMenu popupMenu = new PopupMenu(AddReminderActivity.this, v);
+            popupMenu.getMenuInflater().inflate(
+                    R.menu.popup_menu_units,
+                    popupMenu.getMenu()
+            );
+            popupMenu.setOnMenuItemClickListener(menuItem -> {
+                b.medicationUnitEt.setText(menuItem.getTitle().toString());
+
+                /*if (menuItem.getItemId() == R.id.popup_item_capsules) {
+                }
+                if (menuItem.getItemId() == R.id.popup_item_drops) {
+                }
+                if (menuItem.getItemId() == R.id.popup_item_pills) {
+                }*/
+
+                return true;
+            });
+            popupMenu.show();
+        });
 
         b.setInventoryReminderTextView.setOnClickListener(v -> {
             MaterialDatePicker<Long> datePicker = MaterialDatePicker.Builder.datePicker()
@@ -78,23 +101,27 @@ public class AddReminderActivity extends AppCompatActivity {
             timePicker.show(getSupportFragmentManager(), getString(R.string.timepicker));
         });
 
-        /*b.setInventoryReminderSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
+        b.setInventoryReminderSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
 
             if (isChecked) {
                 b.setInventoryReminderTextView.setVisibility(View.VISIBLE);
+                b.medicationAmountEt.setVisibility(View.VISIBLE);
+                b.medicationThresholdEt.setVisibility(View.VISIBLE);
             } else {
                 b.setInventoryReminderTextView.setVisibility(View.GONE);
+                b.medicationAmountEt.setVisibility(View.GONE);
+                b.medicationThresholdEt.setVisibility(View.GONE);
             }
 
-        });*/
+        });
 
-        List<String> list = new ArrayList<>();
+        /*List<String> list = new ArrayList<>();
         list.add("Pill(s)");
         list.add("Capsules(s)");
         list.add("Drops(s)");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, list);
-        b.medicationUnitEt.setAdapter(adapter);
+        b.medicationUnitEt.setAdapter(adapter);*/
 
         b.saveBtn.setOnClickListener(v -> {
             String name = b.medicationNameEt.getText().toString();
@@ -109,14 +136,21 @@ public class AddReminderActivity extends AppCompatActivity {
                 return;
             if (dose.isEmpty())
                 return;
-            if (totalAmount.isEmpty())
-                return;
-            if (threshold.isEmpty())
-                return;
-            if (!b.setInventoryReminderSwitch.isChecked())
-                return;
-//                if (selectedDate.isEmpty())
-//            else return;
+
+            if (b.setInventoryReminderSwitch.isChecked()) {
+
+                if (totalAmount.isEmpty())
+                    return;
+                if (threshold.isEmpty())
+                    return;
+                if (selectedDate.isEmpty())
+                    return;
+            } else {
+                // set values to null
+                totalAmount = "null";
+                threshold = "null";
+                selectedDate = "null";
+            }
 
             if (timePickerHour == 30)
                 return;
@@ -148,7 +182,7 @@ public class AddReminderActivity extends AppCompatActivity {
                     + name
                     + getString(R.string.medicines_of)
                     + reminderModel.reminderTime
-                    + " (" + dose +" "+unit+ ")";
+                    + " (" + dose + " " + unit + ")";
 
             NotificationScheduler.scheduleNotification(
                     AddReminderActivity.this, medicineReminderCalender,

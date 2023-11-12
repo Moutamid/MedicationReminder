@@ -18,7 +18,7 @@
     <string name="inventory_reminder">Inventory Reminder</string>
     <string name="medicine_reminder_app">Medicine Reminder App</string>
     <string name="an_app_that_helps_you_keep_track_of_your_medications">An app that helps you keep track of your medications</string>
-    <string name="continuee">Continue</string>
+    <string name="continuee">continue</string>
     <string name="no_reminders_added">No reminders added :(</string>
     <string name="medication_name">Medication name</string>
     <string name="medication_unit">Medication unit</string>
@@ -30,7 +30,7 @@
     <string name="set_reminder_date">Set Reminder Date</string>
     <string name="medication_amount">Medication Amount</string>
     <string name="medication_threshold">Medication Threshold</string>
-    <string name="savee">Save</string>
+    <string name="savee">save</string>
     <string name="choose_your_language">Choose your language</string>
     <string name="home">Home</string>
     <string name="all_reminders">All Reminders</string>
@@ -39,4 +39,7 @@
     <string name="app_designer_nfatma">App Designer:\nFatma</string>
     <string name="email_nalajmifatma14_gmail_com">Email:\nalajmifatma14@gmail.com</string>
     <string name="contact">Contact</string>
+    <string name="pill_s">Pill(s)</string>
+    <string name="capsules_s">Capsules(s)</string>
+    <string name="drops_s">Drops(s)</string>
 </resources>
