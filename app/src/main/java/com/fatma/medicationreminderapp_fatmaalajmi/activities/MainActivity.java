@@ -64,9 +64,10 @@ public class MainActivity extends AppCompatActivity {
                 } else if (itemId == R.id.nav_item_language) {
                     getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LanguageFragment()).commit();
                 }
-                /*else if (itemId == R.id.nav_item_contact) {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();
-                }*/
+                else if (itemId == R.id.nav_item_contact) {
+                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new LanguageFragment()).commit();
+//                    getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new ContactFragment()).commit();
+                }
 
                 // Close the drawer when an item is selected
                 drawer.closeDrawer(GravityCompat.START);

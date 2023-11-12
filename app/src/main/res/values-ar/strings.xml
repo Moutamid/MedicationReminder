@@ -40,5 +40,8 @@
     <string name="app_designer_nfatma">مصمم التطبيق:\nفاطمة</string>
     <string name="email_nalajmifatma14_gmail_com">البريد الإلكتروني:\nalajmifatma14@gmail.com</string>
     <string name="contact">الاتصال</string>
+    <string name="pill_s">حبة/حبات</string>
+    <string name="capsules_s">كبسولة/كبسولات</string>
+    <string name="drops_s">قطرة/قطرات</string>
 
 </resources>
